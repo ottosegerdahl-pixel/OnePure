@@ -3,58 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnePure – Naturlig hudvård</title>
+<title>OnePure – Naturlig Hudvård</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Header -->
 <header>
   <h1>OnePure</h1>
   <nav>
-    <a href="index.html">Hem</a>
+    <a href="index.html" class="active-link">Hem</a>
     <a href="shop.html">Shop</a>
     <a href="#contact">Kontakt</a>
   </nav>
 </header>
 
-<!-- Hero-sektion med bakgrundsbild -->
+<!-- Hero Section -->
 <section class="hero">
-  <div class="hero-content">
-    <h1>Naturlig hudvård som fungerar</h1>
-    <p>Utforska vårt sortiment av serum, krämer och oljor</p>
-    <button class="btn" onclick="window.location.href='shop.html'">Shoppa nu</button>
+  <div class="hero-overlay">
+    <div class="hero-text">
+      <h2>Naturlig hudvård som fungerar</h2>
+      <p>Utforska vårt sortiment av serum, krämer och oljor</p>
+      <a href="shop.html" class="hero-button">Shoppa nu</a>
+    </div>
   </div>
 </section>
 
-<!-- Rekommenderade produkter / carousel -->
+<!-- Rekommenderade produkter / Carousel -->
 <section class="products-section">
   <h2 class="section-title">Rekommenderade produkter</h2>
   <div class="products-wrapper" id="carousel">
+    <!-- Exempel 20 produkter -->
     <div class="product-card">
       <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
       <h3>Niacinamide Serum</h3>
       <p>Reducerar rodnad och ger klar hud</p>
-      <p><strong>Pris:</strong> 199 kr</p>
+      <p><strong>199 kr</strong></p>
       <button class="buy-button">Köp</button>
     </div>
     <div class="product-card">
       <img src="bilder/glow-serum.jpg" alt="Glow Serum">
       <h3>Glow Serum</h3>
       <p>Ger huden lyster</p>
-      <p><strong>Pris:</strong> 249 kr</p>
+      <p><strong>249 kr</strong></p>
       <button class="buy-button">Köp</button>
     </div>
     <div class="product-card">
       <img src="bilder/fukt-cream.jpg" alt="Fukt Cream">
       <h3>Fuktgivande Cream</h3>
       <p>Djupt återfuktande</p>
-      <p><strong>Pris:</strong> 179 kr</p>
+      <p><strong>179 kr</strong></p>
       <button class="buy-button">Köp</button>
     </div>
-    <!-- Lägg till fler produkter så det blir minst 20 -->
+    <div class="product-card">
+      <img src="bilder/vitamin-c.jpg" alt="Vitamin C Serum">
+      <h3>Vitamin C Serum</h3>
+      <p>Ljusar upp huden</p>
+      <p><strong>209 kr</strong></p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <div class="product-card">
+      <img src="bilder/retinol.jpg" alt="Retinol Cream">
+      <h3>Retinol Cream</h3>
+      <p>Reducerar linjer</p>
+      <p><strong>299 kr</strong></p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <!-- Kopiera fler produkter upp till 20+ -->
   </div>
 </section>
 
+<!-- Kontakt / Footer -->
 <footer id="contact">
   <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
 </footer>
