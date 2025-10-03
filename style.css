@@ -1,218 +1,196 @@
-/* ================== Global ================== */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* =======================
+   Global Reset & Styles
+======================= */
+* {
+  box-sizing: border-box;
   margin: 0;
-  background: #fafafa;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
   color: #333;
+  line-height: 1.6;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-/* ================== Navbar ================== */
-nav {
-  background: #111;
-  color: white;
-  padding: 12px 20px;
-  position: sticky; /* sticky gör navbar fast vid scroll */
-  top: 0;
-  z-index: 100;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: white;
-  font-weight: bold;
   transition: color 0.3s;
 }
 
-nav a:hover, .active-link {
-  color: #ff9ecf;
+a:hover {
+  color: #f0a500;
 }
 
-/* ================== Hero ================== */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-  background: linear-gradient(120deg, #ff5c8d, #ff9ecf);
+/* =======================
+   Header & Navigation
+======================= */
+header {
+  background-color: #111;
   color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.hero h1 {
-  font-size: 3rem;
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 5px;
+}
+
+nav a {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+/* =======================
+   Hero Sections
+======================= */
+.hero, .hero-about, .hero-contact {
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero h2, .hero-about h2, .hero-contact h2 {
+  font-size: 3em;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
-.hero p {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+.hero p, .hero-about p, .hero-contact p {
+  font-size: 1.2em;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  max-width: 600px;
+  margin: auto;
 }
 
-.btn {
-  padding: 12px 25px;
-  background: white;
-  color: #ff5c8d;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ff5c8d;
-  color: white;
-}
-
-/* ================== Products ================== */
+/* =======================
+   Products
+======================= */
 .products {
-  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  padding: 20px;
 }
 
-.products h2 {
-  margin-bottom: 30px;
-  font-size: 2.5rem;
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.filter button {
-  margin: 0 10px 20px 0;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 20px;
-  background: #ff5c8d;
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #222;
+}
+
+.product-card p {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+.buy-button {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #f0a500;
   color: white;
   font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+  border-radius: 5px;
 }
 
-.filter button:hover {
-  background: #ff9ecf;
+.buy-button:hover {
+  background-color: #d18e00;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-.card {
+/* =======================
+   Content Sections (About & Contact)
+======================= */
+.section-card {
+  max-width: 900px;
+  margin: 50px auto;
   background: white;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card img {
-  width: 100%;
-  display: block;
-}
-
-.card h3 {
-  padding: 15px;
-  font-size: 1.2rem;
+  padding: 40px 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* ================== About ================== */
-.about {
-  padding: 80px 20px;
-  background: #fff0f6;
-  text-align: center;
-}
-
-.about h2 {
-  font-size: 2.5rem;
+.section-card h3 {
+  font-size: 2em;
   margin-bottom: 20px;
+  color: #222;
 }
 
-.about p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
+.section-card p {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.8;
 }
 
-/* ================== Contact ================== */
-.contact {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.contact input, .contact textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: none;
-}
-
-.contact button {
-  padding: 12px 20px;
-  border: none;
-  background: #ff5c8d;
+/* =======================
+   Buttons (Contact)
+======================= */
+.contact-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #f0a500;
   color: white;
   font-weight: bold;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-.contact button:hover {
-  background: #ff9ecf;
+.contact-button:hover {
+  background-color: #d18e00;
 }
 
-/* ================== Animations ================== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s forwards;
+/* =======================
+   Footer
+======================= */
+footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
+footer a { color: #f0a500; }
 
-.fade-in-card {
-  animation: fadeInCard 0.5s forwards;
-}
+footer a:hover { color: white; }
 
-@keyframes fadeInCard {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* ================== Responsive ================== */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1.2rem;
-  }
+/* =======================
+   Responsive
+======================= */
+@media(max-width:768px){
+  .hero h2, .hero-about h2, .hero-contact h2 { font-size: 2.2em; }
+  .hero p, .hero-about p, .hero-contact p { font-size: 1em; }
 }
