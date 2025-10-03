@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OnePure Futuristic</title>
+  <title>OnePure</title>
   <style>
     /* ===== Global ===== */
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
@@ -20,7 +20,7 @@
       text-align: center;
       box-shadow: 0 0 15px #00fff7;
     }
-    header h1 { font-size: 2.5em; color: #00fff7; margin-bottom: 5px; }
+    header h1 { font-size: 2.5em; color: #0ff; margin-bottom: 5px; }
     nav a { margin: 0 15px; font-weight: bold; transition: 0.3s; color: #fff; }
     nav a:hover { color: #ff00d4; }
 
@@ -61,56 +61,10 @@
       box-shadow: 0 0 20px #0ff;
     }
 
-    /* ===== Sök & Filter ===== */
-    .product-controls {
-      max-width: 1200px;
-      margin: -40px auto 40px;
-      padding: 15px 20px;
-      background: rgba(30,30,30,0.85);
-      border-radius: 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 0 20px #0ff;
-      gap: 15px;
-    }
-    .product-controls input {
-      padding: 12px 20px;
-      flex: 1 1 250px;
-      border-radius: 30px;
-      border: none;
-      outline: none;
-      background: #222;
-      color: #fff;
-      font-weight: bold;
-      box-shadow: inset 0 0 10px #0ff;
-    }
-    .product-controls .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .product-controls button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      background: #222;
-      color: #0ff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .product-controls button.active, .product-controls button:hover {
-      background: #0ff;
-      color: #111;
-      box-shadow: 0 0 15px #0ff;
-    }
-
-    /* ===== Products ===== */
+    /* ===== Populära Produkter ===== */
     .products-grid {
       max-width: 1200px;
-      margin: 0 auto 80px;
+      margin: 50px auto;
       padding: 0 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -205,37 +159,9 @@
     @media(max-width:768px){
       .hero h2{font-size:2em;}
       .hero p{font-size:1em;}
-      .product-controls{flex-direction:column; gap:10px;}
+      .products-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px;}
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('search');
-      const filterButtons = document.querySelectorAll('.product-controls button');
-      const products = document.querySelectorAll('.product-card');
-
-      searchInput.addEventListener('input', () => {
-        const term = searchInput.value.toLowerCase();
-        products.forEach(p => {
-          const text = p.querySelector('h3').textContent.toLowerCase();
-          p.style.display = text.includes(term) ? 'block' : 'none';
-        });
-      });
-
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterButtons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const category = btn.dataset.category;
-          products.forEach(p => {
-            if(category === 'all' || p.dataset.category === category){
-              p.style.display = 'block';
-            } else { p.style.display = 'none'; }
-          });
-        });
-      });
-    });
-  </script>
 </head>
 <body>
 
@@ -243,52 +169,42 @@
   <h1>OnePure</h1>
   <nav>
     <a href="#hero">Hem</a>
-    <a href="#products">Produkter</a>
     <a href="#about">Om oss</a>
     <a href="#contact">Kontakt</a>
+    <a href="shop.html">Shop</a>
   </nav>
 </header>
 
 <section class="hero" id="hero">
   <h2>Futuristisk Hudvård</h2>
-  <p>Utforska våra avancerade produkter med banbrytande design och futuristiska ingredienser.</p>
-  <a href="#products" class="hero-button">Utforska Produkter</a>
+  <p>Utforska våra mest populära produkter</p>
+  <a href="shop.html" class="hero-button">Shoppa nu</a>
 </section>
 
-<!-- Sök & Filter -->
-<div class="product-controls">
-  <input type="text" id="search" placeholder="Sök produkter...">
-  <div class="filters">
-    <button data-category="all" class="active">Alla</button>
-    <button data-category="serum">Serum</button>
-    <button data-category="cream">Cream</button>
-  </div>
-</div>
-
-<!-- Produkter -->
-<div class="products-grid" id="products">
-  <div class="product-card" data-category="serum">
+<!-- Populära produkter -->
+<section class="products-grid">
+  <!-- Produkt 1 -->
+  <div class="product-card">
     <h3>Niacinamide Serum</h3>
     <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
     <p>Reducerar rodnad och ger klar hud</p>
     <p><strong>Pris:</strong> 199 kr</p>
-    <a href="#" class="buy-button">Köp nu</a>
   </div>
-  <div class="product-card" data-category="serum">
+  <!-- Produkt 2 -->
+  <div class="product-card">
     <h3>Glow Serum</h3>
     <img src="bilder/glow-serum.jpg" alt="Glow Serum">
     <p>Ger huden lyster med naturliga ingredienser</p>
     <p><strong>Pris:</strong> 249 kr</p>
-    <a href="#" class="buy-button">Köp nu</a>
   </div>
-  <div class="product-card" data-category="cream">
+  <!-- Produkt 3 -->
+  <div class="product-card">
     <h3>Fuktgivande Cream</h3>
     <img src="bilder/fukt-cream.jpg" alt="Fukt Cream">
     <p>Djupt återfuktande och skyddande</p>
     <p><strong>Pris:</strong> 179 kr</p>
-    <a href="#" class="buy-button">Köp nu</a>
   </div>
-</div>
+</section>
 
 <section class="about-section" id="about">
   <h3>Om OnePure</h3>
