@@ -1,6 +1,6 @@
 console.log("OnePure website loaded!");
 
-// Automatisk horisontell scroll för rekommenderade produkter
+// ===== Rekommenderade produkter carousel auto-scroll =====
 const carousel = document.getElementById('carousel');
 let scrollAmount = 0;
 const scrollStep = 2;
@@ -13,7 +13,15 @@ function autoScroll() {
   animationFrameId = requestAnimationFrame(autoScroll);
 }
 
-autoScroll();
-
 carousel.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrameId));
 carousel.addEventListener('mouseleave', () => autoScroll());
+
+autoScroll();
+
+// ===== Se till att produktkort inte blir svarta innan bilden laddats =====
+const productCards = document.querySelectorAll('.product-card img');
+productCards.forEach(img => {
+  img.addEventListener('load', () => {
+    img.parentElement.style.opacity = '1';
+  });
+});
