@@ -1,54 +1,62 @@
-console.log("OnePure Shop loaded!");
+console.log("OnePure website loaded!");
 
-// ===== Variabler =====
-const searchInput = document.getElementById('search');
-const categorySelect = document.getElementById('category');
-const priceSelect = document.getElementById('price');
-const products = document.querySelectorAll('.product-card');
-const carousel = document.getElementById('product-carousel');
+// ===========================
+// Carousel / Auto-scroll
+// ===========================
+const carousel = document.getElementById('carousel');
+if(carousel) {
+  let scrollAmount = 0;
+  const scrollStep = 2;
+  let animationFrameId;
 
-let scrollAmount = 0;
-const scrollStep = 1;
-let animationId;
+  function autoScroll() {
+    scrollAmount += scrollStep;
+    if(scrollAmount >= carousel.scrollWidth / 2) scrollAmount = 0;
+    carousel.scrollLeft = scrollAmount;
+    animationFrameId = requestAnimationFrame(autoScroll);
+  }
 
-// ===== Funktion: Auto-scroll carousel =====
-function autoScroll() {
-  scrollAmount += scrollStep;
-  if(scrollAmount >= carousel.scrollWidth - carousel.clientWidth) scrollAmount = 0;
-  carousel.scrollLeft = scrollAmount;
-  animationId = requestAnimationFrame(autoScroll);
+  autoScroll();
+
+  carousel.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrameId));
+  carousel.addEventListener('mouseleave', () => autoScroll());
 }
-autoScroll();
-carousel.addEventListener('mouseenter', () => cancelAnimationFrame(animationId));
-carousel.addEventListener('mouseleave', () => autoScroll());
 
-// ===== Funktion: Sök och filtrera =====
-function filterProducts() {
-  const query = searchInput.value.toLowerCase();
-  const selectedCategory = categorySelect.value;
-  const selectedPrice = priceSelect.value;
+// ===========================
+// Fade-in för produktkort
+// ===========================
+const productCards = document.querySelectorAll('.product-card');
+productCards.forEach((card, i) => {
+  setTimeout(() => card.classList.add('show'), i * 100);
+});
 
-  products.forEach(card => {
-    const name = card.querySelector('h3').textContent.toLowerCase();
-    const category = card.dataset.category;
-    const price = parseInt(card.dataset.price);
-
-    // Pris-filter
-    let priceMatch = true;
-    if(selectedPrice === "0-199") priceMatch = price <= 199;
-    if(selectedPrice === "200-299") priceMatch = price >= 200 && price <= 299;
-    if(selectedPrice === "300+") priceMatch = price >= 300;
-
-    // Kategori-filter
-    let categoryMatch = selectedCategory === "" || category === selectedCategory;
-
-    // Sök + filter logik
-    if(name.includes(query) && categoryMatch && priceMatch) card.style.display = 'block';
-    else card.style.display = 'none';
+// ===========================
+// Sök/filter (index & shop)
+// ===========================
+const searchInput = document.getElementById('search');
+if(searchInput) {
+  searchInput.addEventListener('input', function(){
+    const query = this.value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(card => {
+      const name = card.querySelector('h3').textContent.toLowerCase();
+      if(name.includes(query)) { 
+        card.style.display='block'; 
+        setTimeout(() => card.classList.add('show'), 50);
+      } else { 
+        card.style.display='none'; 
+        card.classList.remove('show');
+      }
+    });
   });
 }
 
-// Event-listeners
-searchInput.addEventListener('input', filterProducts);
-categorySelect.addEventListener('change', filterProducts);
-priceSelect.addEventListener('change', filterProducts);
+// ===========================
+// Navbar aktiv länk
+// ===========================
+const links = document.querySelectorAll('nav a');
+links.forEach(link => {
+  if(link.href === window.location.href) {
+    link.classList.add('active-link');
+  }
+});
