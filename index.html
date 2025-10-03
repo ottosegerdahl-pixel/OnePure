@@ -38,9 +38,7 @@
   .hero-button { padding:12px 30px; border-radius:50px; background:#a3c1d1; color:#1e1e2e; font-weight:bold; transition:0.3s; }
   .hero-button:hover { transform:scale(1.05); }
 
-  @keyframes heroFadeIn {
-    to { opacity:1; transform:translateY(0); }
-  }
+  @keyframes heroFadeIn { to { opacity:1; transform:translateY(0); } }
 
   /* ===== Populära Produkter ===== */
   .products-grid {
@@ -66,53 +64,29 @@
   .product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; }
   .product-card h3 { color:#a3c1d1; margin-bottom:8px; }
   .product-card p { color:#d0d0d0; margin-bottom:8px; }
+
   .product-card:nth-child(1){ animation-delay:0.2s; }
   .product-card:nth-child(2){ animation-delay:0.4s; }
   .product-card:nth-child(3){ animation-delay:0.6s; }
   .product-card:nth-child(4){ animation-delay:0.8s; }
   .product-card:nth-child(5){ animation-delay:1s; }
 
-  @keyframes productFadeIn {
-    to { opacity:1; transform:translateY(0); }
-  }
+  @keyframes productFadeIn { to { opacity:1; transform:translateY(0); } }
 
   /* ===== Om oss ===== */
-  .about-section {
-    max-width:1000px;
-    margin:80px auto;
-    padding:0 20px;
-    text-align:center;
-  }
+  .about-section { max-width:1000px; margin:80px auto; padding:0 20px; text-align:center; }
   .about-section h2 { font-size:2em; color:#a3c1d1; margin-bottom:20px; }
   .about-section p { font-size:1.2em; color:#d0d0d0; }
 
   /* ===== Kontakt ===== */
-  .contact-section {
-    max-width:1000px;
-    margin:80px auto;
-    padding:0 20px;
-    text-align:center;
-  }
+  .contact-section { max-width:1000px; margin:80px auto; padding:0 20px; text-align:center; }
   .contact-section h2 { font-size:2em; color:#a3c1d1; margin-bottom:20px; }
   .contact-section p { font-size:1.2em; color:#d0d0d0; margin-bottom:15px; }
-  .contact-button {
-    padding:12px 30px;
-    border-radius:50px;
-    background:#a3c1d1;
-    color:#1e1e2e;
-    font-weight:bold;
-    transition:0.3s;
-  }
+  .contact-button { padding:12px 30px; border-radius:50px; background:#a3c1d1; color:#1e1e2e; font-weight:bold; transition:0.3s; }
   .contact-button:hover { transform:scale(1.05); }
 
   /* ===== Footer ===== */
-  footer {
-    background:#2c2c3e;
-    text-align:center;
-    padding:20px;
-    margin-top:50px;
-    color:#d0d0d0;
-  }
+  footer { background:#2c2c3e; text-align:center; padding:20px; margin-top:50px; color:#d0d0d0; }
 
   /* ===== Responsive ===== */
   @media(max-width:768px){
@@ -130,13 +104,14 @@
     <a href="#hero">Hem</a>
     <a href="#about">Om oss</a>
     <a href="#contact">Kontakt</a>
-    <a href="shop.html" class="hero-button">Shoppa nu</a>
+    <a href="shop.html">Shop</a>
   </nav>
 </header>
 
 <section class="hero" id="hero">
   <h2>Subtil Futuristisk Hudvård</h2>
   <p>Utforska våra mest populära produkter</p>
+  <!-- Här är den korrigerade länken -->
   <a href="shop.html" class="hero-button">Shoppa nu</a>
 </section>
 
