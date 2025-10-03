@@ -3,128 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnePure – Hem</title>
+<title>OnePure – Naturlig hudvård</title>
 <link rel="stylesheet" href="style.css">
-<style>
-  /* ===== Global ===== */
-  * { box-sizing:border-box; margin:0; padding:0; font-family:'Poppins', sans-serif; }
-  body { background:#fdfdfd; color:#1a1a1a; scroll-behavior:smooth; }
-  a { text-decoration:none; color:inherit; }
-
-  /* ===== Header ===== */
-  header { position:sticky; top:0; z-index:100; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.05); padding:20px 0; }
-  header .container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
-  header h1 { font-size:2em; color:#1a1a1a; }
-  nav a { margin-left:20px; font-weight:500; transition:0.3s; }
-  nav a:hover { color:#ffcc33; }
-
-  /* ===== Hero ===== */
-  .hero { height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; background:linear-gradient(135deg,#fdfdfd,#f0f0f0); position:relative; }
-  .hero h2 { font-size:2.5em; margin-bottom:15px; animation:fadeUp 1s ease forwards; opacity:0; transform:translateY(30px); }
-  .hero p { font-size:1.2em; color:#555; animation:fadeUp 1.2s ease forwards; opacity:0; transform:translateY(30px); }
-  .hero .btn { padding:12px 30px; background:#ffcc33; color:#1a1a1a; font-weight:bold; border-radius:5px; display:inline-block; margin-top:20px; transition:0.3s; animation:fadeUp 1.4s ease forwards; opacity:0; transform:translateY(30px); }
-  .hero .btn:hover { transform:scale(1.05); }
-
-  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-
-  /* ===== Sektion: Rekommenderade produkter (carousel) ===== */
-  .carousel-section { max-width:1200px; margin:60px auto; padding:0 20px; }
-  .carousel-section h3 { font-size:1.8em; margin-bottom:20px; text-align:center; }
-  .carousel-wrapper { display:flex; gap:20px; overflow-x:auto; scroll-behavior:smooth; padding-bottom:10px; }
-  .carousel-wrapper::-webkit-scrollbar { display:none; }
-
-  .product-card { min-width:220px; background:#fff; border-radius:15px; padding:15px; text-align:center; box-shadow:0 2px 15px rgba(0,0,0,0.05); transition:0.3s; flex-shrink:0; cursor:pointer; }
-  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; transition:transform 0.3s; }
-  .product-card img:hover { transform:scale(1.05); }
-  .product-card h4 { font-size:1.2em; margin-bottom:5px; }
-  .product-card p { color:#555; font-size:0.95em; margin-bottom:8px; }
-  .buy-button { padding:10px 20px; background:#ffcc33; border:none; font-weight:bold; border-radius:5px; transition:0.3s; }
-  .buy-button:hover { transform:scale(1.05); }
-
-  /* ===== Sektioner ===== */
-  section { padding:60px 20px; max-width:1200px; margin:0 auto; }
-  section h3 { font-size:1.8em; margin-bottom:30px; text-align:center; }
-
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-
-  /* ===== Footer ===== */
-  footer { background:#f5f5f5; padding:40px 20px; text-align:center; color:#555; font-size:0.9em; }
-
-  /* ===== Responsive ===== */
-  @media(max-width:768px){ .hero h2{font-size:2em;} .hero p{font-size:1em;} .product-card{min-width:180px;} }
-</style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <div class="container">
-    <h1>OnePure</h1>
-    <nav>
-      <a href="index.html">Hem</a>
-      <a href="shop.html">Shoppa nu</a>
-      <a href="#about">Om oss</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
-  </div>
+  <h1>OnePure</h1>
+  <nav>
+    <a href="index.html">Hem</a>
+    <a href="shop.html">Shop</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
 </header>
 
+<!-- Hero-sektion -->
 <section class="hero">
-  <div>
-    <h2>Naturlig hudvård som fungerar</h2>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Naturlig hudvård som fungerar</h1>
     <p>Utforska vårt sortiment av serum, krämer och oljor</p>
     <a href="shop.html" class="btn">Shoppa nu</a>
   </div>
 </section>
 
-<section class="carousel-section">
-  <h3>Rekommenderade produkter</h3>
-  <div class="carousel-wrapper" id="carousel">
-    <!-- 10 exempelprodukter -->
-    <div class="product-card"><img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide"><h4>Niacinamide Serum</h4><p>Reducerar rodnad</p><p><strong>Pris:</strong> 199 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/glow-serum.jpg" alt="Glow"><h4>Glow Serum</h4><p>Ger lyster</p><p><strong>Pris:</strong> 249 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/fukt-cream.jpg" alt="Fukt"><h4>Fuktgivande Cream</h4><p>Djupt återfuktande</p><p><strong>Pris:</strong> 179 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/vitamin-c.jpg" alt="Vitamin C"><h4>Vitamin C Serum</h4><p>Ljusar upp</p><p><strong>Pris:</strong> 209 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/retinol.jpg" alt="Retinol"><h4>Retinol Cream</h4><p>Reducerar linjer</p><p><strong>Pris:</strong> 299 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/product6.jpg" alt="Hydrating"><h4>Hydrating Serum</h4><p>Ger fukt</p><p><strong>Pris:</strong> 159 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/product7.jpg" alt="Revitalizing"><h4>Revitalizing Cream</h4><p>Skyddar huden</p><p><strong>Pris:</strong> 189 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/product8.jpg" alt="Nourishing"><h4>Nourishing Oil</h4><p>Mjukgör huden</p><p><strong>Pris:</strong> 210 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/product9.jpg" alt="Brightening"><h4>Brightening Cream</h4><p>Jämnar ut ton</p><p><strong>Pris:</strong> 250 kr</p><button class="buy-button">Köp</button></div>
-    <div class="product-card"><img src="bilder/product10.jpg" alt="Vitamin E"><h4>Vitamin E Serum</h4><p>För hudens lyster</p><p><strong>Pris:</strong> 220 kr</p><button class="buy-button">Köp</button></div>
+<!-- Rekommenderade produkter / carousel -->
+<section class="products-section">
+  <h2>Rekommenderade produkter</h2>
+  <div class="products-wrapper" id="carousel">
+    <!-- Exempel på 10 produkter -->
+    <div class="product-card">
+      <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
+      <h3>Niacinamide Serum</h3>
+      <p>Reducerar rodnad och ger klar hud</p>
+      <p><strong>Pris:</strong> 199 kr</p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <div class="product-card">
+      <img src="bilder/glow-serum.jpg" alt="Glow Serum">
+      <h3>Glow Serum</h3>
+      <p>Ger huden lyster</p>
+      <p><strong>Pris:</strong> 249 kr</p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <div class="product-card">
+      <img src="bilder/fukt-cream.jpg" alt="Fukt Cream">
+      <h3>Fuktgivande Cream</h3>
+      <p>Djupt återfuktande</p>
+      <p><strong>Pris:</strong> 179 kr</p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <div class="product-card">
+      <img src="bilder/vitamin-c.jpg" alt="Vitamin C Serum">
+      <h3>Vitamin C Serum</h3>
+      <p>Ljusar upp huden</p>
+      <p><strong>Pris:</strong> 209 kr</p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <div class="product-card">
+      <img src="bilder/retinol.jpg" alt="Retinol Cream">
+      <h3>Retinol Cream</h3>
+      <p>Reducerar linjer</p>
+      <p><strong>Pris:</strong> 299 kr</p>
+      <button class="buy-button">Köp</button>
+    </div>
+    <!-- Kopiera fler kort upp till 10–20 -->
   </div>
 </section>
 
-<section id="about">
-  <h3>Om OnePure</h3>
-  <p style="text-align:center; max-width:800px; margin:0 auto;">Vi skapar naturliga hudvårdsprodukter med fokus på effektivitet och hudhälsa. Alla ingredienser är noggrant utvalda för att ge din hud det bästa.</p>
-</section>
-
-<section id="contact">
-  <h3>Kontakt</h3>
-  <p style="text-align:center;">Har du frågor? Maila oss på <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
-</section>
-
-<footer>
+<!-- Kontakt & Footer -->
+<footer id="contact">
   <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
 </footer>
 
-<script>
-  // Carousel auto-scroll
-  const carousel = document.getElementById('carousel');
-  let scrollAmount = 0;
-  const scrollStep = 2;
-  let animationFrameId;
-
-  function autoScroll() {
-    scrollAmount += scrollStep;
-    if(scrollAmount >= carousel.scrollWidth / 2) scrollAmount = 0;
-    carousel.scrollLeft = scrollAmount;
-    animationFrameId = requestAnimationFrame(autoScroll);
-  }
-  autoScroll();
-
-  carousel.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrameId));
-  carousel.addEventListener('mouseleave', () => autoScroll());
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
