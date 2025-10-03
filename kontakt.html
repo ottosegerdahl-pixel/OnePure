@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OnePure - Produkter</title>
+  <title>OnePure - Kontakt</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Navbar -->
 <nav>
   <ul>
     <li><a href="index.html">Hem</a></li>
@@ -17,47 +18,18 @@
   </ul>
 </nav>
 
-<section class="products">
-  <h2>Våra produkter</h2>
-
-  <div class="filter">
-    <button onclick="filterProducts('all')">Alla</button>
-    <button onclick="filterProducts('serum')">Serum</button>
-    <button onclick="filterProducts('mask')">Masker</button>
-  </div>
-
-  <div class="grid" id="productGrid">
-    <div class="card" data-category="serum">
-      <img src="images/glow-serum.jpg" alt="Glow Serum">
-      <h3>Glow Serum</h3>
-    </div>
-    <div class="card" data-category="mask">
-      <img src="images/hydrating-mask.jpg" alt="Hydrating Mask">
-      <h3>Hydrating Mask</h3>
-    </div>
-    <div class="card" data-category="serum">
-      <img src="images/niacinamide-serum.jpg" alt="Niacinamide Serum">
-      <h3>Niacinamide Serum</h3>
-    </div>
-    <div class="card" data-category="mask">
-      <img src="images/clay-mask.jpg" alt="Clay Mask">
-      <h3>Clay Mask</h3>
-    </div>
-  </div>
+<!-- Kontaktformulär -->
+<section class="contact">
+  <h2>Kontakta oss</h2>
+  <form>
+    <input type="text" placeholder="Ditt namn" required>
+    <input type="email" placeholder="Din e-post" required>
+    <textarea placeholder="Meddelande" required></textarea>
+    <button type="submit">Skicka</button>
+  </form>
 </section>
 
-<script>
-function filterProducts(category) {
-  const cards = document.querySelectorAll('#productGrid .card');
-  cards.forEach(card => {
-    if (category === 'all' || card.getAttribute('data-category') === category) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-</script>
+<script src="animations.js"></script>
 
 </body>
 </html>
