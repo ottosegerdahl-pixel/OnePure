@@ -5,52 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OnePure</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
   <!-- Header -->
-  <header>
+  <header id="header">
     <div class="logo-section">
       <div class="logo">OnePure</div>
       <div class="slogan">Pure. Powerful. OnePure.</div>
     </div>
     <nav>
       <ul>
-        <li><a href="#">Hem</a></li>
-        <li><a href="#">Produkter</a></li>
-        <li><a href="#">Om oss</a></li>
-        <li><a href="#">Kontakt</a></li>
+        <li><a href="#hero">Hem</a></li>
+        <li><a href="#products">Produkter</a></li>
+        <li><a href="#about">Om oss</a></li>
+        <li><a href="#contact">Kontakt</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero sektion -->
-  <section class="hero">
-    <h1>Välkommen till OnePure</h1>
-    <p>Pure. Powerful. OnePure.</p>
-    <a href="#" class="btn">Utforska produkter</a>
+  <section id="hero" class="hero">
+    <div class="hero-text">
+      <h1>Välkommen till OnePure</h1>
+      <p>Pure. Powerful. OnePure.</p>
+      <a href="#products" class="btn">Utforska produkter</a>
+    </div>
   </section>
 
-  <!-- Produkter (placeholder grid) -->
-  <section class="products">
+  <!-- Produkter -->
+  <section id="products" class="products">
     <h2>Våra produkter</h2>
     <div class="grid">
-      <div class="card">Produkt 1</div>
-      <div class="card">Produkt 2</div>
-      <div class="card">Produkt 3</div>
-      <div class="card">Produkt 4</div>
-      <div class="card">Produkt 5</div>
-      <div class="card">Produkt 6</div>
+      <div class="card">
+        <img src="https://via.placeholder.com/200x200.png?text=Glow+Serum" alt="Glow Serum">
+        <h3>Glow Serum</h3>
+        <p>Ger huden lyster och fukt hela dagen.</p>
+        <a href="#" class="btn-card">Köp nu</a>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/200x200.png?text=Hydrating+Mask" alt="Hydrating Mask">
+        <h3>Hydrating Mask</h3>
+        <p>Återfuktar och lugnar irriterad hud.</p>
+        <a href="#" class="btn-card">Köp nu</a>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/200x200.png?text=Niacinamide+Serum" alt="Niacinamide Serum">
+        <h3>Niacinamide Serum</h3>
+        <p>Minskar porer och jämnar ut hudtonen.</p>
+        <a href="#" class="btn-card">Köp nu</a>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/200x200.png?text=Clay+Mask" alt="Clay Mask">
+        <h3>Clay Mask</h3>
+        <p>Rengör porerna och absorberar överflödig olja.</p>
+        <a href="#" class="btn-card">Köp nu</a>
+      </div>
     </div>
   </section>
 
   <!-- Om oss -->
-  <section class="about">
+  <section id="about" class="about">
     <h2>Om oss</h2>
     <p>OnePure är ett UF-företag som erbjuder noggrant utvalda K-beauty produkter inom hudvård. Vi tror på kvalitet, enkelhet och hudvård som fungerar.</p>
   </section>
 
   <!-- Kontakt -->
-  <section class="contact">
+  <section id="contact" class="contact">
     <h2>Kontakta oss</h2>
     <p>Email: <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
     <p>Telefon: 073 503 4773</p>
@@ -65,6 +87,23 @@
   <!-- Footer -->
   <footer>
     <p>© 2025 OnePure UF</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
   </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
