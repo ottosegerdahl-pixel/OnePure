@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <h1>OnePure</h1>
   <nav>
@@ -18,21 +17,19 @@
   </nav>
 </header>
 
-<!-- Hero-sektion -->
+<!-- Hero-sektion med bakgrundsbild -->
 <section class="hero">
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Naturlig hudvård som fungerar</h1>
     <p>Utforska vårt sortiment av serum, krämer och oljor</p>
-    <a href="shop.html" class="btn">Shoppa nu</a>
+    <button class="btn" onclick="window.location.href='shop.html'">Shoppa nu</button>
   </div>
 </section>
 
 <!-- Rekommenderade produkter / carousel -->
 <section class="products-section">
-  <h2>Rekommenderade produkter</h2>
+  <h2 class="section-title">Rekommenderade produkter</h2>
   <div class="products-wrapper" id="carousel">
-    <!-- Exempel på 10 produkter -->
     <div class="product-card">
       <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
       <h3>Niacinamide Serum</h3>
@@ -54,25 +51,10 @@
       <p><strong>Pris:</strong> 179 kr</p>
       <button class="buy-button">Köp</button>
     </div>
-    <div class="product-card">
-      <img src="bilder/vitamin-c.jpg" alt="Vitamin C Serum">
-      <h3>Vitamin C Serum</h3>
-      <p>Ljusar upp huden</p>
-      <p><strong>Pris:</strong> 209 kr</p>
-      <button class="buy-button">Köp</button>
-    </div>
-    <div class="product-card">
-      <img src="bilder/retinol.jpg" alt="Retinol Cream">
-      <h3>Retinol Cream</h3>
-      <p>Reducerar linjer</p>
-      <p><strong>Pris:</strong> 299 kr</p>
-      <button class="buy-button">Köp</button>
-    </div>
-    <!-- Kopiera fler kort upp till 10–20 -->
+    <!-- Lägg till fler produkter så det blir minst 20 -->
   </div>
 </section>
 
-<!-- Kontakt & Footer -->
 <footer id="contact">
   <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
 </footer>
