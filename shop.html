@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnePure – Shop</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; font-family:'Helvetica Neue', Arial, sans-serif; }
+  body { background:#1f1f2e; color:#fff; line-height:1.6; }
+  a { text-decoration:none; color:inherit; }
+
+  /* Header */
+  header { background:#2c2c3e; padding:20px; text-align:center; position:sticky; top:0; z-index:100; }
+  header h1 { color:#a3c1d1; font-size:2em; margin-bottom:10px; }
+  nav a { margin:0 15px; font-weight:bold; color:#fff; transition:0.3s; }
+  nav a:hover { color:#a3c1d1; }
+
+  /* Hero/Intro */
+  .hero {
+    height:20vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2c2c3e 0%,#1f1f2e 100%);
+    opacity:0;
+    transform:translateY(50px);
+    animation:fadeSlideIn 1s forwards;
+  }
+  .hero h2 { font-size:2em; color:#c0d6e4; text-align:center; }
+
+  @keyframes fadeSlideIn {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* Filter & Sök */
+  .filters { max-width:1200px; margin:30px auto; display:flex; justify-content:space-between; align-items:center; gap:15px; padding:0 20px; flex-wrap:wrap; }
+  .filters input, .filters select { padding:10px; border-radius:8px; border:none; font-size:1em; }
+
+  /* Produktgrid */
+  .products-grid { max-width:1200px; margin:20px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; padding:0 20px; }
+  .product-card { background:#2c2c3e; border-radius:15px; padding:15px; text-align:center; transition:0.3s; cursor:pointer; opacity:0; transform:translateY(30px); animation:productFadeIn 0.8s forwards; }
+  .product-card:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 0 15px #a3c1d1; }
+  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; }
+  .product-card h3 { color:#a3c1d1; margin-bottom:5px; }
+  .product-card p { color:#d0d0d0; margin-bottom:5px; }
+
+  .product-card:nth-child(1){ animation-delay:0.1s; }
+  .product-card:nth-child(2){ animation-delay:0.2s; }
+  .product-card:nth-child(3){ animation-delay:0.3s; }
+  .product-card:nth-child(4){ animation-delay:0.4s; }
+  .product-card:nth-child(5){ animation-delay:0.5s; }
+  /*... fortsätt upp till 50 för alla kort */
+
+  @keyframes productFadeIn { to { opacity:1; transform:translateY(0); } }
+
+  /* Footer */
+  footer { background:#2c2c3e; text-align:center; padding:20px; margin-top:50px; color:#d0d0d0; }
+
+  @media(max-width:768px){ .filters{flex-direction:column; align-items:flex-start;} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>OnePure Shop</h1>
+  <nav>
+    <a href="index.html">Hem</a>
+    <a href="#filters">Shop</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Upptäck hela vårt sortiment</h2>
+</section>
+
+<!-- Filter och sök -->
+<div class="filters" id="filters">
+  <input type="text" id="search" placeholder="Sök produkter...">
+  <select id="category">
+    <option value="">Alla kategorier</option>
+    <option value="serum">Serum</option>
+    <option value="cream">Cream</option>
+    <option value="oil">Oljebaserade</option>
+  </select>
+  <select id="price">
+    <option value="">Alla priser</option>
+    <option value="0-199">0-199 kr</option>
+    <option value="200-299">200-299 kr</option>
+    <option value="300+">300+ kr</option>
+  </select>
+</div>
+
+<!-- Produktgrid -->
+<section class="products-grid" id="products">
+  <!-- Demo 50 produkter -->
+  <div class="product-card">
+    <h3>Niacinamide Serum</h3>
+    <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
+    <p>Reducerar rodnad och ger klar hud</p>
+    <p><strong>Pris:</strong> 199 kr</p>
+  </div>
+  <div class="product-card">
+    <h3>Glow Serum</h3>
+    <img src="bilder/glow-serum.jpg" alt="Glow Serum">
+    <p>Ger huden lyster med naturliga ingredienser</p>
+    <p><strong>Pris:</strong> 249 kr</p>
+  </div>
+  <div class="product-card">
+    <h3>Fuktgivande Cream</h3>
+    <img src="bilder/fukt-cream.jpg" alt="Fukt Cream">
+    <p>Djupt återfuktande och skyddande</p>
+    <p><strong>Pris:</strong> 179 kr</p>
+  </div>
+  <!-- ... kopiera och ändra namn/bild för att göra 50 produkter -->
+</section>
+
+<footer id="contact">
+  <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
+</footer>
+
+<script>
+  // Enkel sökfunktion
+  const searchInput = document.getElementById('search');
+  searchInput.addEventListener('input', function(){
+    const query = this.value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(card => {
+      const name = card.querySelector('h3').textContent.toLowerCase();
+      if(name.includes(query)){ card.style.display='block'; }
+      else{ card.style.display='none'; }
+    });
+  });
+
+  // Här kan du lägga till filter-funktioner baserat på kategori och pris
+</script>
+
+</body>
+</html>
