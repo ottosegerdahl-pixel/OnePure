@@ -1,4 +1,4 @@
-/* Global */
+/* ================== Global ================== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -11,12 +11,12 @@ a {
   color: inherit;
 }
 
-/* Navbar */
+/* ================== Navbar ================== */
 nav {
   background: #111;
   color: white;
-  padding: 10px 20px;
-  position: sticky;
+  padding: 12px 20px;
+  position: sticky; /* sticky gör navbar fast vid scroll */
   top: 0;
   z-index: 100;
 }
@@ -36,11 +36,11 @@ nav a {
   transition: color 0.3s;
 }
 
-nav a:hover {
-  color: #ff5c8d;
+nav a:hover, .active-link {
+  color: #ff9ecf;
 }
 
-/* Hero */
+/* ================== Hero ================== */
 .hero {
   text-align: center;
   padding: 120px 20px;
@@ -72,7 +72,7 @@ nav a:hover {
   color: white;
 }
 
-/* Products */
+/* ================== Products ================== */
 .products {
   padding: 60px 20px;
   text-align: center;
@@ -121,6 +121,7 @@ nav a:hover {
 .card h3 {
   padding: 15px;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .card:hover {
@@ -128,7 +129,7 @@ nav a:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* About */
+/* ================== About ================== */
 .about {
   padding: 80px 20px;
   background: #fff0f6;
@@ -146,7 +147,7 @@ nav a:hover {
   margin: 0 auto;
 }
 
-/* Contact */
+/* ================== Contact ================== */
 .contact {
   padding: 80px 20px;
   text-align: center;
@@ -182,7 +183,27 @@ nav a:hover {
   background: #ff9ecf;
 }
 
-/* Responsive */
+/* ================== Animations ================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-card {
+  animation: fadeInCard 0.5s forwards;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================== Responsive ================== */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -194,32 +215,4 @@ nav a:hover {
   .hero p {
     font-size: 1.2rem;
   }
-}
-/* Fade-in för hero */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Fade-in för produktkort */
-.fade-in-card {
-  animation: fadeInCard 0.5s forwards;
-}
-
-@keyframes fadeInCard {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* Aktiv länk i navbar */
-.active-link {
-  color: #ff9ecf !important;
 }
