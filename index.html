@@ -4,36 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OnePure</title>
-  <style>
-    /* Reset & Global */
-    * { box-sizing: border-box; margin:0; padding:0; font-family:'Helvetica Neue', Arial, sans-serif; }
-    body { background-color:#f4f4f4; color:#333; line-height:1.6; }
-    a { text-decoration:none; color:inherit; }
-
-    /* Header */
-    header { background-color:#111; color:white; padding:20px 0; text-align:center; position:sticky; top:0; z-index:1000; }
-    header h1 { font-size:2.5em; margin-bottom:5px; }
-    nav a { margin:0 15px; font-weight:bold; transition:color 0.3s; }
-    nav a:hover { color:#f0a500; }
-
-    /* Hero */
-    .hero { background: url('bilder/hero-background.jpg') center/cover no-repeat; color:white; text-align:center; padding:100px 20px; }
-    .hero h2 { font-size:3em; margin-bottom:20px; text-shadow:2px 2px 5px rgba(0,0,0,0.5); }
-    .hero p { font-size:1.2em; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
-
-    /* Products */
-    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; padding:50px 20px; max-width:1200px; margin:auto; }
-    .product-card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; text-align:center; padding:20px; }
-    .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-    .product-card img { width:100%; border-radius:10px; margin-bottom:15px; }
-    .product-card h3 { margin-bottom:10px; font-size:1.5em; color:#222; }
-    .product-card p { margin-bottom:10px; font-size:1em; color:#555; }
-    .buy-button { display:inline-block; padding:10px 25px; background-color:#f0a500; color:white; font-weight:bold; border-radius:5px; transition: background-color 0.3s; }
-    .buy-button:hover { background-color:#d18e00; }
-
-    /* Footer */
-    footer { background-color:#111; color:white; text-align:center; padding:20px 0; margin-top:50px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -48,7 +19,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" style="background-image:url('bilder/hero-background.jpg');">
     <h2>Vår Hudvårdsserie</h2>
     <p>Naturliga och effektiva produkter för klarare hud</p>
   </section>
@@ -62,12 +33,28 @@
       <p><strong>Pris:</strong> 199 kr</p>
       <a href="#" class="buy-button">Köp nu</a>
     </div>
-    <!-- Lägg till fler produkter här -->
+
+    <!-- Exempel på fler produkter -->
+    <div class="product-card">
+      <h3>Glow Serum</h3>
+      <img src="bilder/glow-serum.jpg" alt="Glow Serum">
+      <p>Ger huden lyster och jämnar ut hudtonen med naturliga ingredienser.</p>
+      <p><strong>Pris:</strong> 249 kr</p>
+      <a href="#" class="buy-button">Köp nu</a>
+    </div>
+
+    <div class="product-card">
+      <h3>Fuktgivande Cream</h3>
+      <img src="bilder/fukt-cream.jpg" alt="Fuktgivande Cream">
+      <p>Återfuktar huden djupt och skyddar mot uttorkning hela dagen.</p>
+      <p><strong>Pris:</strong> 179 kr</p>
+      <a href="#" class="buy-button">Köp nu</a>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 OnePure | Kontakt: OnePureCosmetics@gmail.com</p>
+    <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
   </footer>
 
 </body>
