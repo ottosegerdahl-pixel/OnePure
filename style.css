@@ -3,14 +3,16 @@
   max-width: 1200px;
   margin: 120px auto 50px;
   padding: 0 20px;
-  overflow: hidden; /* döljer horisontell scrollbar */
-  position: relative;
+  overflow-x: auto;
+  display: flex;
+  gap: 25px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 }
 
 .products-wrapper {
   display: flex;
   gap: 25px;
-  /* scrollen styrs via JS */
 }
 
 .product-card {
@@ -20,9 +22,17 @@
   padding: 15px;
   text-align: center;
   box-shadow: 0 0 15px #00fff7;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
   cursor: pointer;
-  flex-shrink: 0; /* så korten inte krymper */
+  flex-shrink: 0; /* korten krymper inte */
+  scroll-snap-align: start;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.product-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .product-card:hover {
@@ -67,4 +77,29 @@
 .buy-button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #00fff7, 0 0 50px #ff00d4;
+}
+
+/* ===== Scrollbar styling ===== */
+.products-section::-webkit-scrollbar {
+  height: 8px;
+}
+
+.products-section::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 10px;
+}
+
+.products-section::-webkit-scrollbar-thumb {
+  background: #00fff7;
+  border-radius: 10px;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .products-section {
+    gap: 15px;
+  }
+  .product-card {
+    min-width: 180px;
+  }
 }
