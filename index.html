@@ -12,6 +12,7 @@
       const filterButtons = document.querySelectorAll('.product-filters button');
       const products = document.querySelectorAll('.product-card');
 
+      // Sökfunktion
       searchInput.addEventListener('input', () => {
         const term = searchInput.value.toLowerCase();
         products.forEach(p => {
@@ -20,6 +21,7 @@
         });
       });
 
+      // Filterfunktion
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           filterButtons.forEach(b => b.classList.remove('active'));
@@ -87,7 +89,7 @@
       <p><strong>Pris:</strong> 179 kr</p>
       <a href="#" class="buy-button">Köp nu</a>
     </div>
-    <!-- Du kan lägga till fler produkter här -->
+    <!-- Lägg till fler produkter här -->
   </div>
 </section>
 
