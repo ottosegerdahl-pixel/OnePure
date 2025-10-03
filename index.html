@@ -5,26 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OnePure – Hem</title>
 <style>
+  /* ===== Global ===== */
   * { box-sizing:border-box; margin:0; padding:0; font-family: 'Helvetica Neue', Arial, sans-serif; }
   body { background:#1e1e2e; color:#fff; line-height:1.6; }
   a { text-decoration:none; color:inherit; }
-  header { background:#2c2c3e; padding:20px; text-align:center; }
-  header h1 { font-size:2.5em; color:#a3c1d1; }
-  nav a { margin:0 15px; color:#fff; font-weight:bold; transition:0.3s; }
+
+  /* ===== Header ===== */
+  header {
+    background:#2c2c3e;
+    padding:20px;
+    text-align:center;
+  }
+  header h1 { font-size:2.5em; color:#a3c1d1; margin-bottom:5px; }
+  nav a { margin:0 15px; font-weight:bold; color:#fff; transition:0.3s; }
   nav a:hover { color:#a3c1d1; }
-  .hero { height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(135deg,#2c2c3e 0%,#1e1e2e 100%); }
+
+  /* ===== Hero ===== */
+  .hero {
+    height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#2c2c3e 0%,#1e1e2e 100%);
+    opacity:0;
+    transform:translateY(50px);
+    animation:heroFadeIn 1s forwards;
+  }
   .hero h2 { font-size:2.8em; color:#c0d6e4; margin-bottom:20px; }
   .hero p { font-size:1.2em; color:#d0d0d0; margin-bottom:25px; }
   .hero-button { padding:12px 30px; border-radius:50px; background:#a3c1d1; color:#1e1e2e; font-weight:bold; transition:0.3s; }
   .hero-button:hover { transform:scale(1.05); }
-  .products-grid { max-width:1200px; margin:50px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; padding:0 20px; }
-  .product-card { background:#2c2c3e; border-radius:15px; padding:15px; text-align:center; transition:0.3s; }
-  .product-card:hover { transform:translateY(-5px); }
-  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
+
+  @keyframes heroFadeIn {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ===== Populära Produkter ===== */
+  .products-grid {
+    max-width:1200px;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:0 20px;
+  }
+  .product-card {
+    background:#2c2c3e;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+    transition:0.3s;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(30px);
+    animation:productFadeIn 0.8s forwards;
+  }
+  .product-card:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 0 15px #a3c1d1; }
+  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; }
   .product-card h3 { color:#a3c1d1; margin-bottom:8px; }
   .product-card p { color:#d0d0d0; margin-bottom:8px; }
-  section { margin:80px 0; text-align:center; }
-  footer { background:#2c2c3e; padding:20px; text-align:center; color:#d0d0d0; }
+  .product-card:nth-child(1){ animation-delay:0.2s; }
+  .product-card:nth-child(2){ animation-delay:0.4s; }
+  .product-card:nth-child(3){ animation-delay:0.6s; }
+  .product-card:nth-child(4){ animation-delay:0.8s; }
+  .product-card:nth-child(5){ animation-delay:1s; }
+
+  @keyframes productFadeIn {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ===== Om oss ===== */
+  .about-section {
+    max-width:1000px;
+    margin:80px auto;
+    padding:0 20px;
+    text-align:center;
+  }
+  .about-section h2 { font-size:2em; color:#a3c1d1; margin-bottom:20px; }
+  .about-section p { font-size:1.2em; color:#d0d0d0; }
+
+  /* ===== Kontakt ===== */
+  .contact-section {
+    max-width:1000px;
+    margin:80px auto;
+    padding:0 20px;
+    text-align:center;
+  }
+  .contact-section h2 { font-size:2em; color:#a3c1d1; margin-bottom:20px; }
+  .contact-section p { font-size:1.2em; color:#d0d0d0; margin-bottom:15px; }
+  .contact-button {
+    padding:12px 30px;
+    border-radius:50px;
+    background:#a3c1d1;
+    color:#1e1e2e;
+    font-weight:bold;
+    transition:0.3s;
+  }
+  .contact-button:hover { transform:scale(1.05); }
+
+  /* ===== Footer ===== */
+  footer {
+    background:#2c2c3e;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+    color:#d0d0d0;
+  }
+
+  /* ===== Responsive ===== */
+  @media(max-width:768px){
+    .hero h2{font-size:2em;}
+    .hero p{font-size:1em;}
+    .products-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px;}
+  }
 </style>
 </head>
 <body>
@@ -64,16 +159,29 @@
     <p>Djupt återfuktande och skyddande</p>
     <p><strong>Pris:</strong> 179 kr</p>
   </div>
+  <div class="product-card">
+    <h3>Vitamin C Serum</h3>
+    <img src="bilder/vitamin-c.jpg" alt="Vitamin C Serum">
+    <p>Ljusar upp huden och jämnar ut ton</p>
+    <p><strong>Pris:</strong> 209 kr</p>
+  </div>
+  <div class="product-card">
+    <h3>Retinol Cream</h3>
+    <img src="bilder/retinol.jpg" alt="Retinol Cream">
+    <p>Reducerar fina linjer och rynkor</p>
+    <p><strong>Pris:</strong> 299 kr</p>
+  </div>
 </section>
 
-<section id="about">
+<section class="about-section" id="about">
   <h2>Om OnePure</h2>
   <p>Vi kombinerar modern design med högkvalitativa hudvårdsingredienser. Transparent, hållbart och effektivt.</p>
 </section>
 
-<section id="contact">
+<section class="contact-section" id="contact">
   <h2>Kontakta oss</h2>
   <p>Maila oss: <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
+  <a href="mailto:OnePureCosmetics@gmail.com" class="contact-button">Skicka Mail</a>
 </section>
 
 <footer>
