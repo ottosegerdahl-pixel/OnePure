@@ -4,43 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OnePure – Shop</title>
-<style>
-/* ===== Global ===== */
-* { box-sizing: border-box; margin:0; padding:0; font-family:'Poppins', Arial, sans-serif; }
-body { background:#f5f5f5; color:#1a1a1a; line-height:1.6; scroll-behavior:smooth; }
-a { text-decoration:none; color:inherit; }
-
-/* ===== Header ===== */
-header { background:#ffffff; padding:20px 0; text-align:center; position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-header h1 { font-size:2.5em; color:#1a1a1a; margin-bottom:5px; }
-nav a { margin:0 15px; font-weight:500; color:#1a1a1a; transition:0.3s; }
-nav a:hover { color:#ffcc33; }
-
-/* ===== Hero ===== */
-.hero { height:20vh; display:flex; justify-content:center; align-items:center; background:linear-gradient(135deg,#ffffff 0%,#f0f0f0 100%); text-align:center; }
-.hero h2 { font-size:2em; color:#1a1a1a; }
-
-/* ===== Filter & Sök ===== */
-.filters { max-width:1200px; margin:30px auto; display:flex; justify-content:space-between; align-items:center; gap:15px; padding:0 20px; flex-wrap:wrap; }
-.filters input, .filters select { padding:10px; border-radius:8px; border:1px solid #ccc; font-size:1em; width: 100%; max-width:250px; }
-
-/* ===== Produkter carousel/grid ===== */
-#product-carousel { display:flex; gap:20px; overflow-x:auto; padding:20px; scroll-snap-type:x mandatory; scroll-behavior:smooth; }
-.product-card { min-width:220px; flex:0 0 auto; scroll-snap-align:start; background:#ffffff; border-radius:15px; padding:15px; text-align:center; box-shadow:0 2px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; }
-.product-card:hover { transform:translateY(-5px); box-shadow:0 4px 25px rgba(0,0,0,0.15); }
-.product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; transition:transform 0.3s; }
-.product-card img:hover { transform: scale(1.05); }
-.product-card h3 { font-size:1.3em; color:#1a1a1a; margin-bottom:5px; }
-.product-card p { color:#555; margin-bottom:8px; }
-.buy-button { padding:10px 20px; background:linear-gradient(45deg,#ffcc33,#ffb347); color:#1a1a1a; font-weight:bold; border-radius:5px; transition: all 0.3s; }
-.buy-button:hover { transform: scale(1.05); box-shadow:0 0 10px rgba(255,204,51,0.5); }
-
-/* ===== Footer ===== */
-footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; color:#555; font-size:0.9em; }
-
-/* ===== Responsive ===== */
-@media(max-width:768px){ .filters{flex-direction:column; align-items:flex-start;} }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -48,7 +12,7 @@ footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; c
   <h1>OnePure Shop</h1>
   <nav>
     <a href="index.html">Hem</a>
-    <a href="#filters">Shop</a>
+    <a href="#shop">Shop</a>
     <a href="#contact">Kontakt</a>
   </nav>
 </header>
@@ -57,6 +21,7 @@ footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; c
   <h2>Upptäck hela vårt sortiment</h2>
 </section>
 
+<!-- Filter & Sök -->
 <div class="filters" id="filters">
   <input type="text" id="search" placeholder="Sök produkter...">
   <select id="category">
@@ -73,8 +38,9 @@ footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; c
   </select>
 </div>
 
-<section id="product-carousel">
-  <!-- 20 produkter -->
+<!-- Produktgrid -->
+<section class="products-grid" id="products">
+  <!-- Exempel på 20 produkter -->
   <div class="product-card" data-category="serum" data-price="199">
     <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
     <h3>Niacinamide Serum</h3>
@@ -110,8 +76,6 @@ footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; c
     <p><strong>Pris:</strong> 299 kr</p>
     <button class="buy-button">Köp</button>
   </div>
-
-  <!-- Fler produkter, upp till 20 -->
   <div class="product-card" data-category="serum" data-price="159">
     <img src="bilder/product6.jpg" alt="Hydrating Serum">
     <h3>Hydrating Serum</h3>
@@ -147,7 +111,6 @@ footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; c
     <p><strong>Pris:</strong> 220 kr</p>
     <button class="buy-button">Köp</button>
   </div>
-
   <div class="product-card" data-category="oil" data-price="180">
     <img src="bilder/product11.jpg" alt="Face Oil">
     <h3>Face Oil</h3>
@@ -176,86 +139,28 @@ footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; c
     <p><strong>Pris:</strong> 230 kr</p>
     <button class="buy-button">Köp</button>
   </div>
+  <div class="product-card" data-category="cream" data-price="190">
+    <img src="bilder/product15.jpg" alt="Soothing Cream">
+    <h3>Soothing Cream</h3>
+    <p>Lindrar huden</p>
+    <p><strong>Pris:</strong> 190 kr</p>
+    <button class="buy-button">Köp</button>
+  </div>
   <div class="product-card" data-category="serum" data-price="210">
-    <img src="bilder/product15.jpg" alt="Collagen Serum">
-    <h3>Collagen Serum</h3>
-    <p>För fastare hud</p>
+    <img src="bilder/product16.jpg" alt="Cica Serum">
+    <h3>Cica Serum</h3>
+    <p>För känslig hud</p>
     <p><strong>Pris:</strong> 210 kr</p>
     <button class="buy-button">Köp</button>
   </div>
-  <div class="product-card" data-category="cream" data-price="240">
-    <img src="bilder/product16.jpg" alt="Soothing Cream">
-    <h3>Soothing Cream</h3>
-    <p>Lindrar rodnad</p>
+  <div class="product-card" data-category="oil" data-price="240">
+    <img src="bilder/product17.jpg" alt="Botanical Oil">
+    <h3>Botanical Oil</h3>
+    <p>Närande och lugnande</p>
     <p><strong>Pris:</strong> 240 kr</p>
     <button class="buy-button">Köp</button>
   </div>
-  <div class="product-card" data-category="oil" data-price="195">
-    <img src="bilder/product17.jpg" alt="Argan Oil">
-    <h3>Argan Oil</h3>
-    <p>Närande olja</p>
-    <p><strong>Pris:</strong> 195 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="cream" data-price="275">
-    <img src="bilder/product18.jpg" alt="Night Cream">
-    <h3>Night Cream</h3>
-    <p>Återfuktar över natten</p>
-    <p><strong>Pris:</strong> 275 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="serum" data-price="230">
-    <img src="bilder/product19.jpg" alt="Bright Serum">
-    <h3>Bright Serum</h3>
-    <p>Ger glow direkt</p>
-    <p><strong>Pris:</strong> 230 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="oil" data-price="260">
-    <img src="bilder/product20.jpg" alt="Essential Oil">
-    <h3>Essential Oil</h3>
-    <p>Näring & lyster</p>
-    <p><strong>Pris:</strong> 260 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-</section>
-
-<footer id="contact">
-  <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
-</footer>
-
-<script>
-console.log("OnePure Shop loaded!");
-
-// Enkel sökfunktion
-const searchInput = document.getElementById('search');
-searchInput.addEventListener('input', function(){
-  const query = this.value.toLowerCase();
-  const products = document.querySelectorAll('.product-card');
-  products.forEach(card => {
-    const name = card.querySelector('h3').textContent.toLowerCase();
-    if(name.includes(query)) card.style.display='block';
-    else card.style.display='none';
-  });
-});
-
-// Autoscroll carousel
-const carousel = document.getElementById('product-carousel');
-let scrollAmount = 0;
-const scrollStep = 1;
-let animationId;
-
-function autoScroll() {
-  scrollAmount += scrollStep;
-  if(scrollAmount >= carousel.scrollWidth - carousel.clientWidth) scrollAmount = 0;
-  carousel.scrollLeft = scrollAmount;
-  animationId = requestAnimationFrame(autoScroll);
-}
-
-autoScroll();
-carousel.addEventListener('mouseenter', () => cancelAnimationFrame(animationId));
-carousel.addEventListener('mouseleave', () => autoScroll());
-</script>
-
-</body>
-</html>
+  <div class="product-card" data-category="cream" data-price="260">
+    <img src="bilder/product18.jpg" alt="Moisturizing Cream">
+    <h3>Moisturizing Cream</h3>
+    <p>Djupt återfukt
