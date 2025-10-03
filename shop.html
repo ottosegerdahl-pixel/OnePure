@@ -4,7 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OnePure – Shop</title>
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Global ===== */
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+  body { background: #f5f5f5; color: #1a1a1a; line-height: 1.6; scroll-behavior: smooth; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ===== Header ===== */
+  header { background: #fff; padding: 20px 0; text-align: center; position: sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+  header h1 { font-size: 2.5em; color: #1a1a1a; margin-bottom: 5px; }
+  nav a { margin: 0 15px; font-weight: 500; color: #1a1a1a; transition:0.3s; }
+  nav a:hover { color: #ffcc33; }
+
+  /* ===== Hero ===== */
+  .hero { height: 20vh; display:flex; justify-content:center; align-items:center; background: linear-gradient(135deg,#ffffff 0%,#f0f0f0 100%); text-align:center; }
+  .hero h2 { font-size:2em; color:#1a1a1a; }
+
+  /* ===== Filter & Sök ===== */
+  .filters { max-width:1200px; margin:30px auto; display:flex; justify-content:space-between; align-items:center; gap:15px; padding:0 20px; flex-wrap:wrap; }
+  .filters input, .filters select { padding:10px; border-radius:8px; border:1px solid #ccc; font-size:1em; width: 100%; max-width: 250px; }
+
+  /* ===== Produktgrid ===== */
+  .products-grid { max-width:1200px; margin:20px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; padding:0 20px; }
+  .product-card { background:#fff; border-radius:15px; padding:15px; text-align:center; box-shadow:0 2px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; }
+  .product-card:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 4px 20px rgba(0,0,0,0.15); }
+  .product-card img { width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:12px; transition:transform 0.3s; }
+  .product-card img:hover { transform: scale(1.05); }
+  .product-card h3 { font-size:1.2em; color:#1a1a1a; margin-bottom:5px; }
+  .product-card p { color:#555; margin-bottom:8px; }
+  .buy-button { padding:10px 20px; background: linear-gradient(45deg,#ffcc33,#ffb347); color:#1a1a1a; font-weight:bold; border-radius:5px; transition: all 0.3s; }
+  .buy-button:hover { transform: scale(1.05); box-shadow:0 0 10px rgba(255,204,51,0.5); }
+
+  /* ===== Footer ===== */
+  footer { background:#f0f0f0; text-align:center; padding:20px; margin-top:50px; color:#555; font-size:0.9em; }
+
+  /* ===== Responsive ===== */
+  @media(max-width:768px){
+    .filters{flex-direction:column; align-items:flex-start;}
+    .products-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px;}
+  }
+</style>
 </head>
 <body>
 
@@ -12,7 +52,7 @@
   <h1>OnePure Shop</h1>
   <nav>
     <a href="index.html">Hem</a>
-    <a href="#shop">Shop</a>
+    <a href="#filters">Shop</a>
     <a href="#contact">Kontakt</a>
   </nav>
 </header>
@@ -21,7 +61,6 @@
   <h2>Upptäck hela vårt sortiment</h2>
 </section>
 
-<!-- Filter & Sök -->
 <div class="filters" id="filters">
   <input type="text" id="search" placeholder="Sök produkter...">
   <select id="category">
@@ -38,9 +77,8 @@
   </select>
 </div>
 
-<!-- Produktgrid -->
 <section class="products-grid" id="products">
-  <!-- Exempel på 20 produkter -->
+  <!-- Exempel 20 produkter -->
   <div class="product-card" data-category="serum" data-price="199">
     <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
     <h3>Niacinamide Serum</h3>
@@ -111,83 +149,63 @@
     <p><strong>Pris:</strong> 220 kr</p>
     <button class="buy-button">Köp</button>
   </div>
-  <div class="product-card" data-category="oil" data-price="180">
-    <img src="bilder/product11.jpg" alt="Face Oil">
-    <h3>Face Oil</h3>
-    <p>Mjukar upp huden</p>
-    <p><strong>Pris:</strong> 180 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="cream" data-price="270">
-    <img src="bilder/product12.jpg" alt="Anti-Aging Cream">
-    <h3>Anti-Aging Cream</h3>
-    <p>Reducerar rynkor</p>
-    <p><strong>Pris:</strong> 270 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="serum" data-price="200">
-    <img src="bilder/product13.jpg" alt="Hyaluronic Serum">
-    <h3>Hyaluronic Serum</h3>
-    <p>Djupåterfuktar</p>
-    <p><strong>Pris:</strong> 200 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="oil" data-price="230">
-    <img src="bilder/product14.jpg" alt="Luxury Oil">
-    <h3>Luxury Oil</h3>
-    <p>Närande olja</p>
-    <p><strong>Pris:</strong> 230 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="cream" data-price="190">
-    <img src="bilder/product15.jpg" alt="Soothing Cream">
-    <h3>Soothing Cream</h3>
-    <p>Lindrar huden</p>
-    <p><strong>Pris:</strong> 190 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="serum" data-price="210">
-    <img src="bilder/product16.jpg" alt="Cica Serum">
-    <h3>Cica Serum</h3>
-    <p>För känslig hud</p>
-    <p><strong>Pris:</strong> 210 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="oil" data-price="240">
-    <img src="bilder/product17.jpg" alt="Botanical Oil">
-    <h3>Botanical Oil</h3>
-    <p>Närande och lugnande</p>
-    <p><strong>Pris:</strong> 240 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="cream" data-price="260">
-    <img src="bilder/product18.jpg" alt="Moisturizing Cream">
-    <h3>Moisturizing Cream</h3>
-    <p>Djupt återfuktande</p>
-    <p><strong>Pris:</strong> 260 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="serum" data-price="230">
-    <img src="bilder/product19.jpg" alt="Bright Serum">
-    <h3>Bright Serum</h3>
-    <p>Ger huden lyster</p>
-    <p><strong>Pris:</strong> 230 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
-  <div class="product-card" data-category="oil" data-price="220">
-    <img src="bilder/product20.jpg" alt="Rejuvenating Oil">
-    <h3>Rejuvenating Oil</h3>
-    <p>Återfuktar huden</p>
-    <p><strong>Pris:</strong> 220 kr</p>
-    <button class="buy-button">Köp</button>
-  </div>
+  <!-- Lägg till fler upp till 20+ produkter -->
 </section>
 
 <footer id="contact">
   <p>© 2025 OnePure | <a href="mailto:OnePureCosmetics@gmail.com">OnePureCosmetics@gmail.com</a></p>
 </footer>
 
-<script src="script.js"></script>
-<script src="animations.js"></script>
+<script>
+console.log("OnePure Shop Loaded");
+
+// Sökfunktion
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase();
+  const products = document.querySelectorAll('.product-card');
+  products.forEach(card => {
+    const name = card.querySelector('h3').textContent.toLowerCase();
+    if(name.includes(query)) card.style.display='block';
+    else card.style.display='none';
+  });
+});
+
+// Filterkategori
+const categorySelect = document.getElementById('category');
+categorySelect.addEventListener('change', function() {
+  filterProducts();
+});
+
+// Filterpris
+const priceSelect = document.getElementById('price');
+priceSelect.addEventListener('change', function() {
+  filterProducts();
+});
+
+function filterProducts() {
+  const category = categorySelect.value;
+  const price = priceSelect.value;
+  const products = document.querySelectorAll('.product-card');
+
+  products.forEach(card => {
+    let show = true;
+
+    // Kategori
+    if(category && card.dataset.category !== category) show = false;
+
+    // Pris
+    if(price) {
+      const p = parseInt(card.dataset.price);
+      if(price==='0-199' && p>199) show = false;
+      if(price==='200-299' && (p<200 || p>299)) show = false;
+      if(price==='300+' && p<300) show = false;
+    }
+
+    card.style.display = show ? 'block' : 'none';
+  });
+}
+</script>
+
 </body>
 </html>
