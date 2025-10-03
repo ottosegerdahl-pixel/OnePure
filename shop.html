@@ -5,58 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OnePure – Shop</title>
 <style>
-  * { box-sizing:border-box; margin:0; padding:0; font-family:'Helvetica Neue', Arial, sans-serif; }
-  body { background:#fdf7f2; color:#333; line-height:1.6; }
-  a { text-decoration:none; color:inherit; }
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Helvetica Neue', Arial, sans-serif; }
+body { background:#111; color:#fff; line-height:1.6; }
+a { text-decoration:none; color:inherit; }
 
-  /* Header */
-  header { background:#fff8f0; padding:20px; text-align:center; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-  header h1 { color:#b34700; font-size:2em; margin-bottom:10px; }
-  nav a { margin:0 15px; font-weight:bold; color:#333; transition:0.3s; }
-  nav a:hover { color:#b34700; }
+/* Header */
+header { background:#1a1a2e; padding:20px; text-align:center; position:sticky; top:0; z-index:100; }
+header h1 { color:#00fff7; font-size:2em; margin-bottom:10px; }
+nav a { margin:0 15px; font-weight:bold; color:#fff; transition:0.3s; }
+nav a:hover { color:#ffea00; }
 
-  /* Hero/Intro */
-  .hero {
-    height:20vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ffe5d1 0%,#ffccaa 100%);
-    opacity:0;
-    transform:translateY(50px);
-    animation:fadeSlideIn 1s forwards;
-  }
-  .hero h2 { font-size:2em; color:#b34700; text-align:center; }
+/* Hero */
+.hero { height:20vh; display:flex; justify-content:center; align-items:center; background: linear-gradient(135deg,#1a1a2e,#111); }
+.hero h2 { font-size:2em; color:#00fff7; text-align:center; }
 
-  @keyframes fadeSlideIn {
-    to { opacity:1; transform:translateY(0); }
-  }
+/* Filter & Sök */
+.filters { max-width:1200px; margin:30px auto; display:flex; justify-content:space-between; align-items:center; gap:15px; padding:0 20px; flex-wrap:wrap; }
+.filters input, .filters select { padding:10px; border-radius:8px; border:none; font-size:1em; }
 
-  /* Filter & Sök */
-  .filters { max-width:1200px; margin:30px auto; display:flex; justify-content:space-between; align-items:center; gap:15px; padding:0 20px; flex-wrap:wrap; }
-  .filters input, .filters select { padding:10px; border-radius:8px; border:1px solid #b34700; font-size:1em; }
+/* Produkter grid */
+.products-grid { max-width:1200px; margin:20px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; padding:0 20px; }
 
-  /* Produktgrid */
-  .products-grid { max-width:1200px; margin:20px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; padding:0 20px; }
-  .product-card { background:#fff3e6; border-radius:15px; padding:15px; text-align:center; transition:0.3s; cursor:pointer; opacity:0; transform:translateY(30px); animation:productFadeIn 0.8s forwards; }
-  .product-card:hover { transform:translateY(-5px) scale(1.05); box-shadow:0 5px 15px rgba(179,71,0,0.3); }
-  .product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; }
-  .product-card h3 { color:#b34700; margin-bottom:5px; }
-  .product-card p { color:#5c2c00; margin-bottom:5px; }
+/* Produktkort */
+.product-card { background:#1f1f2e; border-radius:15px; padding:15px; text-align:center; box-shadow:0 0 15px #00fff7; transition:0.3s; cursor:pointer; }
+.product-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 0 40px #ff00d4,0 0 70px #ffea00; }
+.product-card img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:12px; transition: transform 0.3s; }
+.product-card img:hover { transform: scale(1.05); }
+.product-card h3 { color:#00fff7; margin-bottom:8px; }
+.product-card p { color:#ccc; margin-bottom:8px; }
+.buy-button { padding:10px 20px; background: linear-gradient(45deg,#00fff7,#ff00d4,#ffea00,#00fff7); background-size:400% 400%; color:#fff; font-weight:bold; border-radius:5px; transition: all 0.3s; }
+.buy-button:hover { transform: scale(1.05); box-shadow:0 0 20px #00fff7,0 0 50px #ff00d4; }
 
-  .product-card:nth-child(1){ animation-delay:0.1s; }
-  .product-card:nth-child(2){ animation-delay:0.2s; }
-  .product-card:nth-child(3){ animation-delay:0.3s; }
-  .product-card:nth-child(4){ animation-delay:0.4s; }
-  .product-card:nth-child(5){ animation-delay:0.5s; }
-  /* fortsätt efter behov */
+/* Footer */
+footer { background:#1a1a2e; text-align:center; padding:20px; margin-top:50px; color:#ccc; }
 
-  @keyframes productFadeIn { to { opacity:1; transform:translateY(0); } }
-
-  /* Footer */
-  footer { background:#fff8f0; text-align:center; padding:20px; margin-top:50px; color:#5c2c00; }
-
-  @media(max-width:768px){ .filters{flex-direction:column; align-items:flex-start;} }
+/* Responsive */
+@media(max-width:768px){ .filters{flex-direction:column; align-items:flex-start;} }
 </style>
 </head>
 <body>
@@ -74,6 +58,7 @@
   <h2>Upptäck hela vårt sortiment</h2>
 </section>
 
+<!-- Filter & Sök -->
 <div class="filters" id="filters">
   <input type="text" id="search" placeholder="Sök produkter...">
   <select id="category">
@@ -90,25 +75,24 @@
   </select>
 </div>
 
+<!-- Produktgrid med 50+ produkter -->
 <section class="products-grid" id="products">
-  <div class="product-card">
+  <!-- Exempel: kopiera och ändra namn/bild för fler produkter -->
+  <div class="product-card" data-category="serum" data-price="199">
     <h3>Niacinamide Serum</h3>
     <img src="bilder/the-niacinamide-15-serum-cosrx-official-3_2048x.webp" alt="Niacinamide Serum">
     <p>Reducerar rodnad och ger klar hud</p>
     <p><strong>Pris:</strong> 199 kr</p>
+    <button class="buy-button">Köp</button>
   </div>
-  <div class="product-card">
-    <h3>Glow Serum</h3>
-    <img src="bilder/glow-serum.jpg" alt="Glow Serum">
+  <div class="product-card" data-category="cream" data-price="249">
+    <h3>Glow Cream</h3>
+    <img src="bilder/glow-serum.jpg" alt="Glow Cream">
     <p>Ger huden lyster med naturliga ingredienser</p>
     <p><strong>Pris:</strong> 249 kr</p>
+    <button class="buy-button">Köp</button>
   </div>
-  <div class="product-card">
-    <h3>Fuktgivande Cream</h3>
-    <img src="bilder/fukt-cream.jpg" alt="Fukt Cream">
-    <p>Djupt återfuktande och skyddande</p>
-    <p><strong>Pris:</strong> 179 kr</p>
-  </div>
+  <!-- Kopiera och upprepa tills du har minst 50 kort -->
 </section>
 
 <footer id="contact">
@@ -116,19 +100,38 @@
 </footer>
 
 <script>
-  // Sökfunktion
-  const searchInput = document.getElementById('search');
-  searchInput.addEventListener('input', function(){
-    const query = this.value.toLowerCase();
-    const products = document.querySelectorAll('.product-card');
-    products.forEach(card => {
-      const name = card.querySelector('h3').textContent.toLowerCase();
-      if(name.includes(query)){ card.style.display='block'; }
-      else{ card.style.display='none'; }
-    });
-  });
+// ===== Enkel sökfunktion + filter =====
+const searchInput = document.getElementById('search');
+const categorySelect = document.getElementById('category');
+const priceSelect = document.getElementById('price');
+const products = document.querySelectorAll('.product-card');
 
-  // Här kan vi lägga till kategori- och prisfilter senare
+function filterProducts() {
+  const query = searchInput.value.toLowerCase();
+  const category = categorySelect.value;
+  const priceRange = priceSelect.value;
+  
+  products.forEach(card => {
+    const name = card.querySelector('h3').textContent.toLowerCase();
+    const cardCategory = card.dataset.category;
+    const cardPrice = parseInt(card.dataset.price);
+    
+    let show = true;
+    if(query && !name.includes(query)) show = false;
+    if(category && cardCategory !== category) show = false;
+    if(priceRange) {
+      const [min, max] = priceRange.split('-');
+      if(max && (cardPrice < min || cardPrice > max)) show = false;
+      else if(!max && cardPrice < parseInt(min)) show = false;
+    }
+    
+    card.style.display = show ? 'block' : 'none';
+  });
+}
+
+searchInput.addEventListener('input', filterProducts);
+categorySelect.addEventListener('change', filterProducts);
+priceSelect.addEventListener('change', filterProducts);
 </script>
 
 </body>
