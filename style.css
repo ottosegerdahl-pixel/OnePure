@@ -1,62 +1,20 @@
-/* ===== Produktsektion ===== */
-.products-container {
+/* ===== Produktsektion / Carousel ===== */
+.products-section {
   max-width: 1200px;
   margin: 120px auto 50px;
   padding: 0 20px;
+  overflow: hidden; /* döljer horisontell scrollbar */
+  position: relative;
 }
 
-.product-search {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.product-search input {
-  padding: 12px 25px;
-  width: 350px;
-  max-width: 90%;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-  background: #111;
-  color: #fff;
-  box-shadow: 0 0 20px #00fff7 inset;
-  font-weight: bold;
-  font-size: 1em;
-}
-
-.product-filters {
+.products-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.product-filters button {
-  padding: 10px 25px;
-  border: none;
-  border-radius: 25px;
-  background: #111;
-  color: #00fff7;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.product-filters button:hover,
-.product-filters button.active {
-  background: #00fff7;
-  color: #111;
-  box-shadow: 0 0 25px #00fff7;
-}
-
-/* ===== Produkter grid ===== */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
+  /* scrollen styrs via JS */
 }
 
-/* ===== Produktkort ===== */
 .product-card {
+  min-width: 220px; /* för horisontell scroll */
   background: #111;
   border-radius: 15px;
   padding: 15px;
@@ -64,6 +22,7 @@
   box-shadow: 0 0 15px #00fff7;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  flex-shrink: 0; /* så korten inte krymper */
 }
 
 .product-card:hover {
@@ -73,8 +32,8 @@
 
 .product-card img {
   width: 100%;
-  height: 200px; /* mindre och proportionerligt */
-  object-fit: cover; /* fyller rutan utan att sträcka bilden */
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 12px;
   transition: transform 0.3s;
@@ -104,6 +63,7 @@
   border-radius: 5px;
   transition: all 0.3s;
 }
+
 .buy-button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #00fff7, 0 0 50px #ff00d4;
